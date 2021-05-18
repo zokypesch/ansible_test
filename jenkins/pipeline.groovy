@@ -60,7 +60,7 @@ pipeline {
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    execCommand: 'cd /ansible_test/playbooks && ansible-playbook -i ../inventori/main.ini -e "host=frontend" -e "digest=$tag" landing.yaml '
+                                    execCommand: 'cd /ansible_test/playbooks && ansible-playbook -i ../inventori/main.ini -e "host=frontend" -e "digest='+"$tag"+'" landing.yaml'
                                 )
                             ]
                         )
