@@ -1,0 +1,9 @@
+---
+- name: Deploy new landing
+  hosts: "{{ host }}"
+  serial: 1
+  gather_facts: no
+  roles:
+    - role: deploy-landing
+      vars:
+        digest: "{{ digest }}"
