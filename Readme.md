@@ -3,5 +3,3 @@ ansible-playbook -i .../inventori/main.ini -e "host={{host name}}" {{template}}.
 
 # example
 ansible-playbook -i ../inventori/main.ini -e "host=frontend" -e "digest=1021f54" landing.yaml
-
-ansible-playbook -i ../inventori/main.ini -e "host=frontend" -e "digest=1021f54" landing.yaml 

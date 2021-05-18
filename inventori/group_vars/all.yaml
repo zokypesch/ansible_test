@@ -1,2 +1,2 @@
 ansible_user: root
-ansible_ssh_private_key_file: "/Users/maulanaoktofitriadi/ssh_custom/prakerja-prod.pem"
+ansible_ssh_private_key_file: "/ansible_test/cred/prakerja-prod.pem"
