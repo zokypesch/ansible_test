@@ -11,5 +11,5 @@
 
 - name: Deploy-landing | Testing
   shell:
-    cmd: robot TestCase 
+    cmd: cd /root/automation-landing && robot TestCase 
     executable: /bin/bash
