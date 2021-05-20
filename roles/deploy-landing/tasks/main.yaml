@@ -9,3 +9,7 @@
     cmd: docker run -dit --restart unless-stopped --name landing -p 4000:80 registry-intl.ap-southeast-5.aliyuncs.com/prakerja/prakerja-landing:"{{ digest }}"
     executable: /bin/bash
 
+- name: Deploy-landing | Testing
+  shell:
+    cmd: robot TestCase 
+    executable: /bin/bash
