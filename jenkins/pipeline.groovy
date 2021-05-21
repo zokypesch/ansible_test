@@ -60,7 +60,22 @@ pipeline {
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    execCommand: 'cd /ansible_test/playbooks && ansible-playbook -i ../inventori/main.ini -e "host=frontend" -e "digest='+"$tag"+'" landing.yaml'
+                                    execCommand: 'cd /root/controller_deployment_landing && ./slb_controller_landing -mode=rollout -id=i-k1a5jk5dipulwzzpggn1'
+                                ),
+                                sshTransfer(
+                                    execCommand: 'cd /ansible_test/playbooks && ansible-playbook -i ../inventori/main.ini -e "host=' + "frontend-server-1" +'" -e "digest='+"$tag"+'" landing.yaml'
+                                ),
+                                 sshTransfer(
+                                    execCommand: 'cd /root/controller_deployment_landing && ./slb_controller_landing -mode=deploy -id=i-k1a5jk5dipulwzzpggn1'
+                                ),
+                                sshTransfer(
+                                    execCommand: 'cd /root/controller_deployment_landing && ./slb_controller_landing -mode=rollout -id=i-k1a5jk5dipulx1yqkim7'
+                                ),
+                                sshTransfer(
+                                    execCommand: 'cd /ansible_test/playbooks && ansible-playbook -i ../inventori/main.ini -e "host=' + "frontend-server-2" +'" -e "digest='+"$tag"+'" landing.yaml'
+                                ),
+                                sshTransfer(
+                                    execCommand: 'cd /root/controller_deployment_landing && ./slb_controller_landing -mode=deploy -id=i-k1a5jk5dipulx1yqkim7'
                                 )
                             ]
                         )
